@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iFix Pro</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?v={% now 'U' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .form-control, .form-select {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: rgba(255, 255, 255, 0.15) !important;
+            border-color: rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1) !important;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1) !important;
+            border: none !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3) !important;
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1.5rem;
+            filter: drop-shadow(0 0 10px rgba(0, 102, 204, 0.6)) drop-shadow(0 0 10px rgba(0, 204, 106, 0.6));
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Expert Phone Repair Services</h1>
+            <p>Professional repairs for all smartphone brands. Fast, reliable, and guaranteed service.</p>
+            <a href="#contact" class="btn">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Professional repair solutions for all your needs</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="{% static 'images/screen-repair.png' %}" alt="Screen Repair">
+                <h3>Screen Repair</h3>
+                <p>Expert screen replacement for all phone models with genuine parts.</p>
+                <a href="{% url 'schedule_appointment' %}?service=screen_repair" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/battery-replacement.png' %}" alt="Battery Replacement">
+                <h3>Battery Replacement</h3>
+                <p>Restore your phone's battery life with high-quality replacements.</p>
+                <a href="{% url 'schedule_appointment' %}?service=battery_replacement" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/water-damage.png' %}" alt="Water Damage Repair">
+                <h3>Water Damage Repair</h3>
+                <p>Specialized treatment for water-damaged devices.</p>
+                <a href="{% url 'schedule_appointment' %}?service=water_damage" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/malware-removal.png' %}" alt="Malware Removal">
+                <h3>Malware Removal</h3>
+                <p>Professional virus and malware removal to protect your device and data.</p>
+                <a href="{% url 'schedule_appointment' %}?service=malware_removal" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/board-repair.svg' %}" alt="Board Repair">
+                <h3>Board Repair</h3>
+                <p>Professional motherboard module replacement and repair services.</p>
+                <a href="{% url 'schedule_appointment' %}?service=board_repair" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/data-recovery.png' %}" alt="Data Recovery">
+                <h3>Data Recovery</h3>
+                <p>Recover your precious data from damaged or malfunctioning devices.</p>
+                <a href="{% url 'schedule_appointment' %}?service=data_recovery" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/CheckUp.png' %}" alt="Phone Check Up">
+                <h3>Phone Check Up</h3>
+                <p>Comprehensive diagnostic to ensure your phone is running smoothly.</p>
+                <a href="{% url 'schedule_appointment' %}?service=phone_check_up" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/upgrade.png' %}" alt="Hardware Upgrade">
+                <h3>Hardware Upgrade</h3>
+                <p>Boost your device performance with component upgrades.</p>
+                <a href="{% url 'schedule_appointment' %}?service=hardware_upgrade" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+            <div class="service-card">
+                <img src="{% static 'images/replace.png' %}" alt="Hardware Replacement">
+                <h3>Hardware Replacement</h3>
+                <p>Replace faulty hardware components with genuine parts.</p>
+                <a href="{% url 'schedule_appointment' %}?service=hardware_replacement" class="btn btn-primary mt-3">Schedule Repair</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us" class="why-us">
+        <div class="section-title">
+            <h2>Why Choose Us</h2>
+            <p>We're committed to providing the best service</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-tools"></i>
+                <h3>Expert Technicians</h3>
+                <p>Certified professionals with years of experience</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-clock"></i>
+                <h3>Quick Service</h3>
+                <p>Most repairs completed within 24 hours</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Warranty</h3>
+                <p>90-day warranty on all repairs</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Best Prices</h3>
+                <p>Competitive pricing with no hidden fees</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with our expert team</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p>+69 (555) 989-1989</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>ifixpro@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-location-dot"></i>
+                    <h3>Location</h3>
+                    <p>221B Becker Street, London City</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-5 position-relative overflow-hidden" style="background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%) !important; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-top: 1px solid rgba(255, 255, 255, 0.1);">
+        <div class="container">
+            <div class="row">
+                <!-- Company Info -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">iFix Pro</h5>
+                    <p class="text-muted">Your trusted partner in professional phone repair services. Certified technicians, genuine parts, and guaranteed satisfaction.</p>
+                    <div class="mt-4">
+                        <a href="#" class="btn btn-outline-light btn-floating me-2" title="Follow us on Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-floating me-2" title="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-floating me-2" title="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-light btn-floating" title="Connect on LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <h6 class="text-white mb-2">Certifications</h6>
+                        <p class="text-muted small mb-1"><i class="fas fa-certificate me-2"></i>Apple Certified Repair Center</p>
+                        <p class="text-muted small mb-1"><i class="fas fa-certificate me-2"></i>Samsung Authorized Service</p>
+                        <p class="text-muted small"><i class="fas fa-award me-2"></i>A+ BBB Rating</p>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">Services</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-mobile-alt me-2"></i>Screen Repair</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-battery-full me-2"></i>Battery Replacement</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-water me-2"></i>Water Damage Repair</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-microchip me-2"></i>Logic Board Repair</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fa-solid fa-database me-2"></i>Data Recovery</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fa-solid fa-bug-slash me-2"></i>Malware Removal</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-search me-2"></i>Phone Check Up</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-arrow-up me-2"></i>Hardware Upgrade</a></li>
+                        <li class="mb-2"><a href="#services" class="text-muted text-decoration-none"><i class="fas fa-exchange-alt me-2"></i>Hardware Replacement</a></li>
+                    </ul>
+                    <h6 class="text-white mt-4 mb-2">Payment Methods</h6>
+                    <div class="payment-methods">
+                        <i class="fab fa-cc-visa me-2 text-muted"></i>
+                        <i class="fab fa-cc-mastercard me-2 text-muted"></i>
+                        <i class="fab fa-cc-amex me-2 text-muted"></i>
+                        <i class="fab fa-cc-paypal text-muted"></i>
+                    </div>
+                </div>
+
+                <!-- Contact & Hours -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">Contact & Hours</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2"></i>
+                            <span>+69 (555) 989-1989</span>
+                            <p class="small ms-4 mb-0">24/7 Emergency: +69 (555) 989-1989</p>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2"></i>
+                            <span>ifix Pro</span>
+                            <p class="small ms-4 mb-0">ifixpro.support@gmail.com</p>
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-location-dot me-2"></i>
+                            <span>221B Beker Street</span>
+                            <p class="small ms-4 mb-0">London City, TC 98989</p>
+                        </li>
+                    </ul>
+                    <h6 class="text-white mt-4 mb-2">Business Hours</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-1">Monday - Friday: 9:00 AM - 8:00 PM</li>
+                        <li class="mb-1">Saturday: 10:00 AM - 6:00 PM</li>
+                        <li>Sunday: 11:00 AM - 4:00 PM</li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter & Support -->
+                <div class="col-md-3 mb-4">
+                    <h5 class="text-white mb-3">Stay Connected</h5>
+                    <p class="text-muted">Subscribe for repair tips, special offers, and tech news.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control bg-dark border-secondary text-white" placeholder="Enter your email">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </div>
+                    <h6 class="text-white mt-4 mb-2">Customer Support</h6>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Track Repair Status</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Schedule Service</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">Warranty Information</a></li>
+                        <li class="mb-2"><a href="#" class="text-muted text-decoration-none">FAQs</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Copyright -->
+        <div class="text-center p-3 mt-4" style="background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 100%);">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                        <span class="text-white-50">&copy; 2025 iFix Pro. All rights reserved.</span>
+                    </div>
+                    <div class="col-md-6 text-md-end text-center">
+                        <a href="#" class="text-white-50 text-decoration-none me-3 footer-link">Privacy Policy</a>
+                        <a href="#" class="text-white-50 text-decoration-none me-3 footer-link">Terms of Service</a>
+                        <a href="#" class="text-white-50 text-decoration-none footer-link">Cookie Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal for Scheduling Repair -->
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h5 class="modal-title" id="scheduleModalLabel">Schedule Your Repair</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="scheduleForm" method="post" action="/schedule/">
+              {% csrf_token %}
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="modal_name" class="form-label">Full Name</label>
+                  <input type="text" class="form-control" id="modal_name" name="name" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="modal_email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="modal_email" name="email" required>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="modal_phone" class="form-label">Phone Number</label>
+                  <input type="text" class="form-control" id="modal_phone" name="phone" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="modal_service" class="form-label">Service Type</label>
+                  <select class="form-select" id="modal_service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="screen_repair">Screen Repair</option>
+                    <option value="battery_replacement">Battery Replacement</option>
+                    <option value="water_damage">Water Damage Repair</option>
+                    <option value="malware_removal">Malware Removal</option>
+                    <option value="board_repair">Board Repair</option>
+                    <option value="data_recovery">Data Recovery</option>
+                    <option value="phone_check_up">Phone Check Up</option>
+                    <option value="hardware_upgrade">Hardware Upgrade</option>
+                    <option value="hardware_replacement">Hardware Replacement</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="modal_device_model" class="form-label">Device Model</label>
+                <input type="text" class="form-control" id="modal_device_model" name="device_model" required>
+              </div>
+              <div class="mb-3">
+                <label for="modal_problem_description" class="form-label">Problem Description</label>
+                <textarea class="form-control" id="modal_problem_description" name="problem_description" rows="3" required></textarea>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="modal_appointment_date" class="form-label">Preferred Date</label>
+                  <input type="date" class="form-control" id="modal_appointment_date" name="appointment_date" required min="{{ today|default:None }}">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="modal_appointment_time" class="form-label">Preferred Time</label>
+                  <input type="time" class="form-control" id="modal_appointment_time" name="appointment_time" required>
+                </div>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-lg">Schedule Appointment</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Open modal and pre-select service
+    const scheduleButtons = document.querySelectorAll('.service-card .btn');
+    scheduleButtons.forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const service = this.getAttribute('href').split('service=')[1];
+        const modalService = document.getElementById('modal_service');
+        if (modalService && service) {
+          modalService.value = service;
+        }
+        const scheduleModal = new bootstrap.Modal(document.getElementById('scheduleModal'));
+        scheduleModal.show();
+      });
+    });
+
+    // Handle modal form submission (Optional: for AJAX submission)
+    // const scheduleForm = document.getElementById('scheduleForm');
+    // scheduleForm.addEventListener('submit', function(e) {
+    //   e.preventDefault();
+    //   // Add AJAX submission logic here
+    //   alert('Form submitted (AJAX simulation). Replace with actual AJAX.');
+    // });
+
+    // Add client-side date validation for the modal form
+    const modalAppointmentDate = document.getElementById('modal_appointment_date');
+    if (modalAppointmentDate) {
+        const today = new Date().toISOString().split('T')[0];
+        modalAppointmentDate.min = today;
+    }
+
+    </script>
+</body>
+</html> 
